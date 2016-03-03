@@ -1,9 +1,9 @@
 # Depends on the git plugin for work_in_progress()
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✘%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✔%{$reset_color%}"
 
 #Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 git_custom_status() {
@@ -17,7 +17,7 @@ git_custom_status() {
 node_prompt_info() {
   if check_node="$(type -p "node")" || [ -z "$check_node" ]; then
     if [ -f "package.json" ]; then 
-      echo "$ZSH_THEME_NODE_PROMPT_PREFIX"node" $(node -v)$ZSH_THEME_NODE_PROMPT_SUFFIX"
+      echo "$ZSH_THEME_NODE_PROMPT_PREFIX"node"~$(node -v)$ZSH_THEME_NODE_PROMPT_SUFFIX"
     fi
   fi
 }
@@ -30,4 +30,4 @@ ZSH_THEME_NODE_PROMPT_SUFFIX="]%{$reset_color%}"
 # RPS1='$(git_custom_status)$(ruby_prompt_info) $EPS1'
 RPS1='$(git_custom_status)$(node_prompt_info) $EPS1'
 
-PROMPT='%{$fg[cyan]%}%n[%~% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+PROMPT='%{$fg[cyan]%}%n[%1d% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
