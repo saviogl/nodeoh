@@ -30,4 +30,4 @@ ZSH_THEME_NODE_PROMPT_SUFFIX="]%{$reset_color%}"
 # RPS1='$(git_custom_status)$(ruby_prompt_info) $EPS1'
 RPS1='$(git_custom_status)$(node_prompt_info) $EPS1'
 
-PROMPT='%{$fg[cyan]%}%n[%1d% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+PROMPT='%{$fg[cyan]%}%n[%c% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
